@@ -1,0 +1,61 @@
+********STREET ART PIECES*******
+
+MVP SCOPE
+• list of all street art pieces/works in SF with ability to add/save new ones to DB
+
+USER STORIES
+Sprint 1 -- Layout :
+  -- focus on setting up front-end framework with HTML/CSS, HBS
+  -- set up organized file system
+  -- collect some seed data
+
+Sprint 2 -- Read :
+  -- set up back-end server w/ data in mongo db (Models, Schemas)
+  -- determine REST routes
+  -- set up gets for all & one Piece
+
+Sprint 3 -- Create :
+  -- form to save Pieces
+  -- addable features : Piece, location, image, comment
+  -- post to receive form data
+
+Sprint 4 -- Relationships :
+  -- add Artist reference to Pieces
+  -- allow users to see Artist data on page
+
+Sprint 5 -- Delete :
+  -- allow users to delete Pieces
+  -- delete Artists
+
+Sprint 6 -- Edit :
+  -- allow users to edit Pieces
+    -- editable features : active, location, image, comment, artist
+  -- create put route for pieces
+
+Sprint 7 -- Edit :
+  -- create put for artist
+
+Sprint 8 -- BONUS :
+  -- Integrate with Google Maps API
+  -- Add ability to upload photos
+
+
+
+
+
+
+DATA MODELS & ERD
+Piece = {
+  location: String, ex) address or brief description
+  active: Boolean, ex) is it still visible
+  photo: String, ex) url--want to upload a photo as part of the form
+  notes: String, ex) ratings, thoughts, notes
+  date_added: Date, ex) date added to the database
+  type: [String] ex) graffiti, mural, sticker, stencil, sculpture
+  Artist: {}
+}
+
+Artist = {
+  name: String,
+  social media: String ex) url to Instagram
+}
