@@ -29,11 +29,11 @@ var piecesList = [
 
 db.Piece.remove({}, function(err, pieces) {
   console.log('REMOVED ALL PIECES');
-  db.Piece.create(pieces_list, function(err, savedPiece) {
+  db.Piece.create(piecesList, function(err, savedPiece) {
     if (err) {
       return console.log('ERROR: ', err);
     }
-    console.log('CREATED NEW ALBUM' + savedPieces);
+    console.log('CREATED PIECES' + savedPiece);
     console.log('CREATED', savedPiece.length, 'PIECES');
     process.exit();
   });

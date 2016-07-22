@@ -7,13 +7,13 @@
     <title>streetsmart</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
-    <script type="text/javascript" src="../public/scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
 
   </head>
   <body>
@@ -98,13 +98,46 @@
 
       <script id="piece-template" type="text/x-handlebars-template">
         <div class="row piece">
-          <div class="#">
+          <div class="col-md-10">
             <div>
 
+              <!-- begin piece internal row -->
               <div class="row">
+                <div class="col-md-9 col-xs-12 piece_entry">
+                  <ul>
 
-                <div>
-                  <img src="{{#}}">
+                    
+                    <div class="thumbnail piece-img">
+                      <img src="{{image}}">
+                    </div>
+
+                    <li>
+                      <h3 class="inline-header">Title:</h3>
+                      <span class="piece-title">{{title}}</span>
+                    </li>
+
+                    <li>
+                      <h3 class="inline-header">Type:</h3>
+                      <span class="piece-type">{{type}}</span>
+                    </li>
+
+                    <li>
+                      <h3 class="inline-header">Location:</h3>
+                      <span class="location">{{location}}</span>
+                    </li>
+
+                    <li>
+                      <h3 class="inline-header">Active:</h3>
+                      <span class="piece-title">{{active}}</span>
+                    </li>
+
+                    <li>
+                      <h3 class="inline-header">Note:</h3>
+                      <span class="piece-note">{{note}}</span>
+                    </li>
+
+
+                  </ul>
                 </div>
 
 
