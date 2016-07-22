@@ -23,6 +23,8 @@ app.get('/api', controllers.api.index);
 
 app.get('/api/pieces', controllers.pieces.index);
 
+app.get('/api/pieces/:id', controllers.pieces.show);
+
 
 
 /******* SERVER ********/

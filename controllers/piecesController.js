@@ -11,8 +11,19 @@ function index(req, res) {
   });
 }
 
+// GET /api/pieces/:id
+function show(req, res) {
+  var pieceId = req.params.id;
+  db.Piece.findOne({_id: pieceId}, function(err, foundPiece) {
+    if (err) { return console.log('SHOW ERROR'); }
+    console.log('FOUND PIECE', foundPiece);
+    res.json(foundPiece);
+  });
+}
+
 
 
 module.exports = {
-  index: index
+  index: index,
+  show: show
 };

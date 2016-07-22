@@ -2,7 +2,7 @@ function index(req, res) {
   res.json({
     message: "Welcome to streetsmart! A homemade full-stack app with personal API",
     documentation_url: 'https://github.com/mehgellan/streetsmart',
-    base_url: '#', // TODO: FILL ME IN!
+    base_url: 'https://hidden-citadel-79874.herokuapp.com/',
     endpoints: [
       {method: 'GET', path: '/api', description: 'Describes all endpoints available'},
       {method: 'GET', path: '/api/pieces', description: 'Route to index all Pieces of art'},

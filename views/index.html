@@ -81,10 +81,12 @@
                 <img src="#" height="200" alt="Image Preview">
               </div>
 
-              <div class="form-group">Input</div>
-
-              <div class="form-group">Button</div>
-
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton">Save Piece:</label>
+                <div class="col-md-4">
+                  <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
             </fieldset>
           </form>
 
@@ -104,34 +106,34 @@
               <!-- begin piece internal row -->
               <div class="row">
                 <div class="col-md-9 col-xs-12 piece_entry">
-                  <ul>
+                  <ul class="list-group">
 
-                    
+
                     <div class="thumbnail piece-img">
-                      <img src="{{image}}">
+                      <img src="{{image}}" alt="piece image">
                     </div>
 
-                    <li>
+                    <li class="list-group-item">
                       <h3 class="inline-header">Title:</h3>
                       <span class="piece-title">{{title}}</span>
                     </li>
 
-                    <li>
+                    <li class="list-group-item">
                       <h3 class="inline-header">Type:</h3>
                       <span class="piece-type">{{type}}</span>
                     </li>
 
-                    <li>
+                    <li class="list-group-item">
                       <h3 class="inline-header">Location:</h3>
                       <span class="location">{{location}}</span>
                     </li>
 
-                    <li>
+                    <li class="list-group-item">
                       <h3 class="inline-header">Active:</h3>
                       <span class="piece-title">{{active}}</span>
                     </li>
 
-                    <li>
+                    <li class="list-group-item">
                       <h3 class="inline-header">Note:</h3>
                       <span class="piece-note">{{note}}</span>
                     </li>
@@ -142,10 +144,9 @@
 
 
               </div>
-              <div>Button Panel</div>
 
             </div>
-
+            <div>Button Panel</div>
           </div>
         </div>
       </script>
