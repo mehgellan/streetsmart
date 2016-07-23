@@ -66,8 +66,13 @@
               </div>
 
               <div class="form-group">
+                <label for="piece-title">Title :</label>
+                <input type="text" name="title">
+              </div>
+
+              <div class="form-group">
                 <label for="location">Location :</label>
-                <input type="text" name="location">
+                <input type="text" name="location" placeholder="Address or description">
               </div>
 
               <div class="form-group">
@@ -76,13 +81,17 @@
               </div>
 
               <div class="form-group">
-                <label for="image">Upload an Image :</label>
-                <input type="file">
-                <img src="#" height="200" alt="Image Preview">
+                <label for="note">Note :</label>
+                <textarea type="text" name="note"></textarea>
               </div>
 
               <div class="form-group">
-                <label class="col-md-4 control-label" for="singlebutton">Save Piece:</label>
+                <label for="image">Upload an Image :</label>
+                <input type="text" name="image" placeholder="Paste link here">
+                <!-- <img src="#" height="200" alt="Image Preview"> -->
+              </div>
+
+              <div class="form-group">
                 <div class="col-md-4">
                   <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
                 </div>
