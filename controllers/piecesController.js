@@ -5,11 +5,19 @@ db = require('../models');
 
 // GET /api/pieces
 function index(req, res) {
-  db.Piece.find(function(err, allPieces) {
-    if (err) { console.log('ERROR, CANNOT FIND ALL PIECES'); }
-    res.json(allPieces);
-  });
+  db.Piece.find()
+    .populate('artist')
+    .exec(function(err, allPieces) {
+      if (err) { return console.log('ERROR, CANNOT FIND ALL PEICES'); }
+      res.json(allPieces);
+    });
 }
+// function index(req, res) {
+//   db.Piece.find(function(err, allPieces) {
+//     if (err) { console.log('ERROR, CANNOT FIND ALL PIECES'); }
+//     res.json(allPieces);
+//   });
+// }
 
 // GET /api/pieces/:id
 function show(req, res) {
