@@ -93,18 +93,3 @@ db.Artist.remove({}, function(err, artists) {
 
   });
 });
-
-
-
-
-// db.Piece.remove({}, function(err, pieces) {
-//   console.log('REMOVED ALL PIECES');
-//   db.Piece.create(piecesList, function(err, savedPiece) {
-//     if (err) {
-//       return console.log('ERROR: ', err);
-//     }
-//     console.log('CREATED PIECES' + savedPiece);
-//     console.log('CREATED', savedPiece.length, 'PIECES');
-//     process.exit();
-//   });
-// });

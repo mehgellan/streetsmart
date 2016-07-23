@@ -22,6 +22,7 @@ function onSuccess(json) {
   console.log('FOUND ALL PIECES');
   json.forEach(function(piece) {
     renderPiece(piece);
+    console.log(piece);
   });
 }
 
