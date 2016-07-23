@@ -27,6 +27,32 @@ var piecesList = [
   }
 ];
 
+var artistsList = [
+  {
+    name: 'Brendan the Blob',
+    contact: 'https://www.instagram.com/brendantheblob/'
+  },
+  {
+    name: 'lx1One',
+    contact: 'https://www.instagram.com/lx1one/'
+  },
+  {
+    name: 'Fnnch',
+    contact: 'https://www.instagram.com/fnnch/'
+  },
+  {
+    name: 'Moneyless1980',
+    contact: 'https://www.instagram.com/moneyless1980/'
+  },
+  { name: 'Low Bros',
+    contact: 'https://www.instagram.com/low_bros/'
+  },
+  {
+    name: 'Alessandro Etnik',
+    contact: 'https://www.instagram.com/alessandroetnik/'
+  }
+];
+
 db.Piece.remove({}, function(err, pieces) {
   console.log('REMOVED ALL PIECES');
   db.Piece.create(piecesList, function(err, savedPiece) {

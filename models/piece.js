@@ -7,7 +7,13 @@ var PieceSchema = new Schema({
   location: String,
   image: String,
   active: Boolean,
-  note: String
+  note: String,
+  artist: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Artist'
+    }
+  ]
 });
 
 var Piece = mongoose.model('Piece', PieceSchema);
