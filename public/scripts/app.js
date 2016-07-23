@@ -2,17 +2,12 @@ console.log('JS is linked');
 
 $(document).on('ready', function() {
 
-
   $.get('/api/pieces', onSuccess);
 
   $('#piece-form form').on('submit', function(e) {
     e.preventDefault();
     var formData = $(this).serialize();
-    $.post('/api/pieces', formData, function(piece) {
-      console.log('POST NEW PIECE SUCCESS', piece.title);
-      renderPiece(piece);
-    });
-
+    $.post('/api/pieces', formData, newPieceSuccess);
   });
 
 
@@ -26,6 +21,13 @@ function onSuccess(json) {
   });
 }
 
+function newPieceSuccess(json) {
+  console.log('POST NEW PIECE SUCCESS', json.piece);
+  var allPieces = [];
+  allPieces.push(json);
+  console.log(allPieces);
+  renderPiece(json);
+}
 
 function renderPiece(piece) {
   var pieceHtml = $('#piece-template').html();

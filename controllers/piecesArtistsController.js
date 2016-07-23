@@ -1,5 +1,7 @@
 db = require('../models');
 
+
+// FIND ALL ARTISTS
 function index(req, res) {
   db.Artist.find()
     .exec(function(err, pieces) {
@@ -7,6 +9,7 @@ function index(req, res) {
       res.json(pieces);
     });
 }
+
 
 
 module.exports = {

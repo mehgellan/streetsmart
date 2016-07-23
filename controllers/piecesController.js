@@ -24,7 +24,7 @@ function show(req, res) {
     });
 }
 
-
+// POST A PIECE WITH FORM
 function create(req, res) {
   var newPiece = new db.Piece({
     title: req.body.title,
@@ -34,16 +34,12 @@ function create(req, res) {
     image: req.body.image,
     note: req.body.note
   });
-  // db.Piece.create(newPiece, function(err, piece) {
-  //   if (err) { console.log('CREATE ERROR', err); }
-  //   console.log('NEW PIECE', piece);
-  //   res.json(piece);
-  // });
+
   db.Artist.findOne({name: req.body.artist}, function(err, artist) {
     newPiece.artist = artist;
     newPiece.save(function(err, piece) {
       if (err) { return console.log('SAVE ERROR', err); }
-      console.log('CREATED', piece.title);
+      console.log('CREATED', piece.title, piece.artist);
       res.json(piece);
     });
   });
