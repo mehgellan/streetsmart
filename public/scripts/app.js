@@ -1,14 +1,19 @@
 console.log('JS is linked');
 
-var templateFunction;
-var allPieces = [];
-
 $(document).on('ready', function() {
-  var pieceHtml = $('#piece-template').html();
-  templateFunction = Handlebars.compile(pieceHtml);
 
 
   $.get('/api/pieces', onSuccess);
+
+  $('#piece-form form').on('submit', function(e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+    $.post('/api/pieces', formData, function(piece) {
+      console.log('POST NEW PIECE SUCCESS', piece.title);
+      renderPiece(piece);
+    });
+
+  });
 
 
 });
@@ -22,7 +27,8 @@ function onSuccess(json) {
 
 
 function renderPiece(piece) {
-  // var context = {pieces: piece};
+  var pieceHtml = $('#piece-template').html();
+  var templateFunction = Handlebars.compile(pieceHtml);
   var templatedPieceHtml = templateFunction(piece);
   $('#pieces').prepend(templatedPieceHtml);
 }

@@ -21,9 +21,19 @@ function show(req, res) {
   });
 }
 
+function create(req, res) {
+  var newPiece = req.body;
+  db.Piece.create(newPiece, function(err, piece) {
+    if (err) { console.log('CREATE ERROR', err); }
+    console.log('NEW PIECE', piece);
+    res.json(piece);
+  });
+}
+
 
 
 module.exports = {
   index: index,
-  show: show
+  show: show,
+  create: create,
 };
