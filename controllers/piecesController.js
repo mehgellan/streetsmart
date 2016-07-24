@@ -53,6 +53,30 @@ function create(req, res) {
   });
 }
 
+function update(req, res) {
+  var pieceId = req.params.piece_id;
+  db.Piece.findOne({_id: pieceId}, function(err, foundPiece) {
+    if (err) { return console.log('ERROR', err); }
+    foundPiece.title = req.body.title;
+    foundPiece.type = req.body.type;
+    foundPiece.image = req.body.image;
+    foundPiece.save(function(err, savedPiece) {
+      if (err) { return console.log('ERROR', err); }
+      res.json(savedPiece);
+      console.log('UPDATED PIECE', savedPiece);
+    });
+  });
+}
+
+function destroy(req, res) {
+  var pieceId = req.params.piece_id;
+  db.Piece.findOneAndRemove({_id: pieceId}, function(err, removedPiece) {
+    if (err) { return console.log('ERROR', err); }
+    res.json(removedPiece);
+    console.log('REMOVED PIECE', removedPiece);
+  });
+}
+
 // // GET ONE PIECE + ARTIST
 // function show(req, res) {
 //   var pieceId = req.params.piece_id;
@@ -108,5 +132,7 @@ function create(req, res) {
 module.exports = {
   index: index,
   show: show,
-  create: create
+  create: create,
+  update: update,
+  destroy: destroy
 };
