@@ -6,20 +6,25 @@ db = require('../models');
 // GET ALL PIECES + ARTIST
 function index(req, res) {
   var artistId = req.params.artist_id;
-  db.Piece.find({artist: artistId}, function(err, foundPieces) {
+  db.Piece.find({artist: artistId})
+    .populate('artist')
+    .exec(function(err, pieces) {
     if (err) { return console.log('ERROR', err); }
-    console.log('FOUND PIECE', foundPieces);
-    res.json(foundPieces);
+    console.log('FOUND PIECES', pieces);
+    res.json(pieces);
   });
 }
 
 function show(req, res) {
+  var artistId = req.params.artist_id;
   var pieceId = req.params.piece_id;
-  db.Piece.findOne({_id: pieceId}, function(err, foundPiece) {
-    if (err) { return console.log('ERROR', err); }
-    console.log('FOUND PIECE', foundPiece);
-    res.json(foundPiece);
-  });
+  db.Piece.findById(pieceId)
+    .populate('artist')
+    .exec(function(err, piece) {
+      if (err) { return console.log('ERROR', err); }
+      res.json(piece);
+      console.log('UPDATED ARTIST NAME', piece);
+    });
 }
 
 // req.body = {
