@@ -34,12 +34,12 @@ function create(req, res) {
     image: req.body.image,
     note: req.body.note
   });
-
+  console.log('NEWPIECE=', newPiece);
   db.Artist.findOne({name: req.body.artist}, function(err, artist) {
     newPiece.artist = artist;
     newPiece.save(function(err, piece) {
       if (err) { return console.log('SAVE ERROR', err); }
-      console.log('CREATED', piece.title, piece.artist);
+      console.log('CREATED', piece.title, artist);
       res.json(piece);
     });
   });

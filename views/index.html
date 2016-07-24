@@ -57,7 +57,7 @@
               <div class="form-group">
                 <label for="type" class="col-md-4 control-label">Type :</label>
                 <div class="col-md-4">
-                    <select>
+                    <select name="type">
                     <option value="mural">Mural</option>
                     <option value="painting">Painting</option>
                     <option value="sticker">Sticker</option>
@@ -71,6 +71,13 @@
                 <label for="piece-title" class="col-md-4 control-label">Title :</label>
                 <div class="col-md-4">
                   <input type="text" name="title">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="artist" class="col-md-4 control-label">Artist :</label>
+                <div class="col-md-4">
+                  <input type="text" name="artist">
                 </div>
               </div>
 
@@ -125,7 +132,7 @@
                   <div class="col-md-9 col-xs-12 piece_entry">
                     <ul class="list-group">
 
-
+                      {{#each pieces}}
                       <div class="thumbnail piece-img">
                         <img src="{{image}}" alt="piece image">
                       </div>
@@ -142,7 +149,7 @@
 
                       <li class="list-group-item">
                         <h3 class="inline-header">Artist:</h3>
-                        <span class="piece-type">{{artist}}</span>
+                        <span class="piece-type">{{pieces.artist}}</span>
                       </li>
 
                       <li class="list-group-item">
@@ -159,7 +166,7 @@
                         <h3 class="inline-header">Note:</h3>
                         <span class="piece-note">{{note}}</span>
                       </li>
-
+                      {{/each}}
 
                     </ul>
                   </div>
@@ -181,16 +188,6 @@
 
     </div>
     <!-- PIECE MODAL-->
-    <!-- <div class="modal fade" tabindex="1" role="dialog" id="artistModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Create
-          </div>
-        </div>
-      </div>
-    </div> -->
 
     <!-- ARTIST PAGE -->
   </body>

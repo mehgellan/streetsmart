@@ -1,13 +1,24 @@
 console.log('JS is linked');
-
+var allPieces = [];
+var templateFunction;
 $(document).on('ready', function() {
+  var pieceHtml = $('#piece-template').html();
+  templateFunction = Handlebars.compile(pieceHtml);
 
   $.get('/api/pieces', onSuccess);
 
   $('#piece-form form').on('submit', function(e) {
     e.preventDefault();
     var formData = $(this).serialize();
-    $.post('/api/pieces', formData, newPieceSuccess);
+    console.log(formData);
+    // $.post('/api/pieces', formData, newPieceSuccess);
+    $.ajax({
+      method: 'POST',
+      url: '/api/pieces',
+      data: formData,
+      success: newPieceSuccess,
+      error: newPieceError
+    });
   });
 
 
@@ -15,23 +26,23 @@ $(document).on('ready', function() {
 
 function onSuccess(json) {
   console.log('FOUND ALL PIECES');
-  json.forEach(function(piece) {
-    renderPiece(piece);
-    console.log(piece);
-  });
+  allPieces = json;
+  renderPiece();
 }
 
 function newPieceSuccess(json) {
-  console.log('POST NEW PIECE SUCCESS', json.piece);
-  var allPieces = [];
+  console.log('POST NEW PIECE SUCCESS', json);
   allPieces.push(json);
-  console.log(allPieces);
-  renderPiece(json);
+  renderPiece();
+}
+function newPieceError() {
+  console.log('NEW PIECE ERROR');
 }
 
-function renderPiece(piece) {
-  var pieceHtml = $('#piece-template').html();
-  var templateFunction = Handlebars.compile(pieceHtml);
-  var templatedPieceHtml = templateFunction(piece);
+function renderPiece() {
+  $('#pieces').empty();
+
+  // templateFunction = Handlebars.compile(pieceHtml);
+  var templatedPieceHtml = templateFunction({pieces: allPieces});
   $('#pieces').prepend(templatedPieceHtml);
 }

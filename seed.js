@@ -56,7 +56,7 @@ var artistsList = [
   },
   {
     name: 'Unknown',
-    contact: null
+    contact: 'none'
   }
 ];
 
@@ -85,7 +85,7 @@ db.Artist.remove({}, function(err, artists) {
           piece.artist = foundArtist;
           piece.save(function(err, savedPiece) {
             if (err) { return console.log('ERROR', err); }
-            console.log('SAVED ' + savedPiece.title + ' by ' + foundArtist.name);
+            console.log('SAVED ' + savedPiece.title + ' by ' + foundArtist);
           });
         });
       });
