@@ -2,14 +2,6 @@ var db = require('./models');
 
 var artistsList = [
   {
-    name: 'Brendan the Blob',
-    contact: 'https://www.instagram.com/brendantheblob/'
-  },
-  {
-    name: 'lx1One',
-    contact: 'https://www.instagram.com/lx1one/'
-  },
-  {
     name: 'Fnnch',
     contact: 'https://www.instagram.com/fnnch/'
   },
@@ -21,8 +13,8 @@ var artistsList = [
     contact: 'https://www.instagram.com/low_bros/'
   },
   {
-    name: 'Alessandro Etnik',
-    contact: 'https://www.instagram.com/alessandroetnik/'
+    name: 'Zio Ziegler',
+    contact: 'https://www.instagram.com/zioziegler/'
   },
   {
     name: 'Unknown',
@@ -39,7 +31,88 @@ var piecesList = [
     active: true,
     note: 'Seein these all over da city!',
     artist: 'Fnnch'
-  }
+  },
+  {
+    title: 'Butterflies',
+    type: 'Painting',
+    location: 'the Haight',
+    image: '/images/butterflies.jpg',
+    active: false,
+    note: 'Pretty',
+    artist: 'Unknown'
+  },
+  {
+    title: 'Cloudy Day',
+    type: 'Mural',
+    location: 'the Mission, SF',
+    image: '/images/cloudy-day.jpg',
+    active: true,
+    note: 'Close up of larger mural',
+    artist: 'Unknown'
+  },
+  {
+    title: 'Tiger',
+    type: 'Mural',
+    location: 'Lower Haight, SF',
+    image: '/images/zio.png',
+    active: false,
+    note: 'Love this guys work',
+    artist: 'Zio Ziegler'
+  },
+  {
+    title: 'Tree Spirit',
+    type: 'Sticker',
+    location: null,
+    image: '/images/tree-spirit.jpg',
+    active: false,
+    note: 'From princess mononoke!',
+    artist: 'Unknown'
+  },
+  {
+    title: 'Unfinished',
+    type: 'Mural',
+    location: 'Berlin',
+    image: '/images/low-bros.JPG',
+    active: false,
+    note: null,
+    artist: 'Low Bros'
+  },
+  {
+    title: 'Dog Park',
+    type: 'Painting',
+    location: 'Lower Haight, SF',
+    image: '/images/fnnch.png',
+    active: true,
+    note: 'He also has a Welsh Corgi one',
+    artist: 'Fnnch'
+  },
+  {
+    title: 'Toobs',
+    type: 'Mural',
+    location: null,
+    image: '/images/toobs.png',
+    active: false,
+    note: null,
+    artist: 'Moneyless1980'
+  },
+  {
+    title: 'Steeple',
+    type: 'Sculpture',
+    location: 'Hayes Valley',
+    image: '/images/sculpture.png',
+    active: true,
+    note: null,
+    artist: 'Unknown'
+  },
+  // {
+  //   title: null,
+  //   type: null,
+  //   location: null,
+  //   image: null,
+  //   active: null,
+  //   note: null,
+  //   artist: null
+  // },
 ];
 
 

@@ -4,9 +4,6 @@ $(document).on('ready', function() {
   // GET ALL ARTISTS
   $.get('/api/artists', onSuccess);
 
-  // GET ALL PIECES
-  $.get('/api/artists', handleAllPieces);
-
   // ADD AN ARTIST
   $('#artist-form form').on('submit', function(e) {
     e.preventDefault();
@@ -19,7 +16,7 @@ $(document).on('ready', function() {
   $('#artists').on('click', '.delete-artist', handleDeleteArtist);
 
   // SHOW PIECES
-  $('#artists').on('click', '.show-pieces', handleShowPieces);
+  $('.show-pieces').on('click', handleShowPieces);
 
   // ADD AN ARTIST
   $('#savePiece').on('click', handleNewPieceSubmit);
@@ -31,17 +28,8 @@ function onSuccess(artists) {
   console.log('FOUND AN ARTIST', artists);
   artists.forEach(function(artist) {
     renderArtist(artist);
-    console.log(artist._id);
-    $.get('/api/artists/' + artist._id, function(artist) {
-      var artistId = artist._id;
-      console.log(artistId);
-      $.get('/api/artists/' + artistId + '/pieces', function(pieces) {
-        pieces.forEach(function(piece) {
-          console.log('PIECE:', piece);
-          renderImages(piece);
-        });
-      });
-    });
+    // console.log(artist._id);
+    getAllImages(artist);
 
   });
 }
@@ -78,6 +66,7 @@ function deleteArtistSuccess(data) {
 }
 
 function handleShowPieces(e) {
+  console.log('SHOW PIECES CLICKED');
   e.preventDefault();
   var currentArtistId = $(this).closest('.artist').data('artist-id');
   console.log('ID', currentArtistId);
@@ -139,9 +128,21 @@ function handleNewPieceSubmit(e) {
 }
 
 function renderImages(image) {
-  console.log(image);
   var imageHtml = $('#gallery-template').html();
   var templateFunction = Handlebars.compile(imageHtml);
   var templatedImagesHtml = templateFunction(image);
   $('#gallery').prepend(templatedImagesHtml);
+}
+
+function getAllImages(artist) {
+  $.get('/api/artists/' + artist._id, function(artist) {
+    var artistId = artist._id;
+    // console.log(artistId);
+    $.get('/api/artists/' + artistId + '/pieces', function(pieces) {
+      pieces.forEach(function(piece) {
+        // console.log('PIECE:', piece);
+        renderImages(piece);
+      });
+    });
+  });
 }

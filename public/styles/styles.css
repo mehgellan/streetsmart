@@ -20,6 +20,8 @@ ARTIST
 img {
   height:250px;
   width:250px;
+  float:left;
+  margin: 10px;
 }
 
 #piece-form {

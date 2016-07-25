@@ -5,11 +5,11 @@ function index(req, res) {
     base_url: 'https://hidden-citadel-79874.herokuapp.com/',
     endpoints: [
       {method: 'GET', path: '/api', description: 'Describes all endpoints available'},
-      {method: 'GET', path: '/api/pieces', description: 'Route to index all Pieces of art'},
-      {method: 'GET', path: '/api/pieces/:id', description: 'Route to show a Piece'},
-      {method: 'POST', path: '/api/pieces', description: 'Route to create a Piece'},
-      {method: 'PUT', path: '/api/pieces/:id', description: 'Route to update a Piece'},
-      {method: 'DELETE', path: '/api/pieces/:id', description: 'Route to destory a Piece'}
+      {method: 'GET', path: '/api/artists', description: 'Route to index all Artists'},
+      {method: 'GET', path: '/api/artists/:id', description: 'Route to show an Artist'},
+      {method: 'POST', path: '/api/artists', description: 'Route to create an Artist'},
+      {method: 'PUT', path: '/api/pieces/:id', description: 'Route to update an Artist'},
+      {method: 'DELETE', path: '/api/pieces/:id', description: 'Route to destory an Artist'}
     ]
   });
 }
