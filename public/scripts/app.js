@@ -5,7 +5,7 @@ $(document).on('ready', function() {
   $.get('/api/artists', onSuccess);
 
   // GET ALL PIECES
-  $.get();
+  $.get('/api/artists/', handleAllPieces);
 
   // ADD AN ARTIST
   $('#artist-form form').on('submit', function(e) {
@@ -25,6 +25,16 @@ $(document).on('ready', function() {
   $('#savePiece').on('click', handleNewPieceSubmit);
 
 });
+
+function handleAllPieces(artists) {
+  artists.forEach(function(artist) {
+    $.get('/api/artists', function(artists) {
+      artists.forEach(function(artist) {
+        console.log(artist.pieces);
+      });
+    });
+  });
+}
 
 
 function onSuccess(artists) {
@@ -86,17 +96,17 @@ function handleShowAllPiecesSuccess(pieces) {
 }
 
 function renderPiece(piece) {
-  console.log(piece);
   var pieceHtml = $('#piece-template').html();
   var templateFunction = Handlebars.compile(pieceHtml);
   var templatedPieceHtml = templateFunction(piece);
-  console.log(templatedPieceHtml);
   $('#pieces-list').prepend(templatedPieceHtml);
 }
 
+
+// ADD NEW PIECE ON SUBMIT
 function handleNewPieceSubmit(e) {
   e.preventDefault();
-  console.log('ADD PIECE BUTTON CLICKED');
+
   // get data from form
   var $modal = $('#pieceModal');
   var $titleInput = $modal.find('#title');
@@ -107,31 +117,21 @@ function handleNewPieceSubmit(e) {
     type: $typeInput.val(),
     image: $imageInput.val()
   };
+
   // get current artist id
   var artistId = $modal.data('artist-id');
+
   // find url
   var pieceUrl = ('/api/artists/' + artistId + '/pieces');
-  console.log('GOT TITLE: ', title, ' AND TYPE: ', type, ' FOR ARTIST W/ ID: ', artistId);
-  $.post(pieceUrl, dataToPost, handleNewPieceSubmitSuccess);
-}
 
-function handleNewPieceSubmitSuccess(piece) {
-  var $modal = $('#pieceModal');
-  var artistId = $modal.data('artist-id');
-  $.get('/api/artists/' + artistId, function(data) {
-    $('[data-artist-id=' + artistId + ']').remove();
-    renderPiece(data);
+  // post data to db
+  $.post(pieceUrl, dataToPost, function(piece) {
+    console.log('NEW PIECE POSTED', piece);
+    renderPiece(piece);
   });
-  console.log('NEW PIECE POSTED', piece);
+
+  // clear the form
+  $titleInput.val('');
+  $typeInput.val('');
+  $imageInput.val('');
 }
-
-
-
-
-
-
-
-
-
-
-// function handleNewPieceSave(e) {
