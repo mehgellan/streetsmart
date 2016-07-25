@@ -27,15 +27,15 @@ function show(req, res) {
     });
 }
 
-function piecesByArtist(req, res) {
-  var artistId = req.params.artist_id;
-  db.Piece.find({artist: artistId})
-    .populate('artist')
-    .exec(function(err, pieces) {
-      if (err) { return console.log('ERROR', err); }
-      res.json(pieces);
-    });
-}
+// function piecesByArtist(req, res) {
+//   var artistId = req.params.artist_id;
+//   db.Piece.find({artist: artistId})
+//     .populate('artist')
+//     .exec(function(err, pieces) {
+//       if (err) { return console.log('ERROR', err); }
+//       res.json(pieces);
+//     });
+// }
 
 function create(req, res) {
   var artistId = req.params.artist_id;
@@ -134,5 +134,4 @@ module.exports = {
   create: create,
   update: update,
   destroy: destroy,
-  piecesByArtist: piecesByArtist
 };

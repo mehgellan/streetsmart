@@ -22,10 +22,9 @@ $(document).on('ready', function() {
   $('#savePiece').on('click', handleNewPieceSubmit);
 
   // EDIT A PIECE
-  $('thumbnail').on('click', handleEditPieceClick);
+  // $('thumbnail').on('click', handleEditPieceClick);
 
 });
-
 
 function onSuccess(artists) {
   console.log('FOUND AN ARTIST', artists);
@@ -138,16 +137,14 @@ function renderImages(image) {
 }
 
 function getAllImages(artist) {
-  $.get('/api/piecesByArtist/' + artist._id, function(artist) {
-    // TODO: Except an array of art pieces all having aristId of artist._id
-    var pieces = artist.pieces;
-    pieces.forEach(function(piece) {
-      renderImages(piece);
+  $.get('/api/artists/' + artist._id, function(artist) {
+    var artistId = artist._id;
+    // console.log(artistId);
+    $.get('/api/artists/' + artistId + '/pieces', function(pieces) {
+      pieces.forEach(function(piece) {
+        // console.log('PIECE:', piece);
+       renderImages(piece);
+      });
     });
   });
-}
-
-function handleEditPieceClick(e) {
-  e.preventDefault();
-
-}
+ }
