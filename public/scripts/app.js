@@ -4,6 +4,9 @@ $(document).on('ready', function() {
   // GET ALL ARTISTS
   $.get('/api/artists', onSuccess);
 
+  // GET ALL PIECES
+  $.get();
+
   // ADD AN ARTIST
   $('#artist-form form').on('submit', function(e) {
     e.preventDefault();
@@ -18,7 +21,11 @@ $(document).on('ready', function() {
   // SHOW PIECES
   $('#artists').on('click', '.show-pieces', handleShowPieces);
 
+  // ADD AN ARTIST
+  $('#savePiece').on('click', handleNewPieceSubmit);
+
 });
+
 
 function onSuccess(artists) {
   console.log('FOUND AN ARTIST', artists);
@@ -42,6 +49,7 @@ function handleNewArtist(artist) {
 }
 
 function handleDeleteArtist(e) {
+  e.preventDefault();
   var artistId = $(this).parents('.artist').data('artist-id');
   console.log(artistId);
   $.ajax({
@@ -86,18 +94,44 @@ function renderPiece(piece) {
   $('#pieces-list').prepend(templatedPieceHtml);
 }
 
+function handleNewPieceSubmit(e) {
+  e.preventDefault();
+  console.log('ADD PIECE BUTTON CLICKED');
+  // get data from form
+  var $modal = $('#pieceModal');
+  var $titleInput = $modal.find('#title');
+  var $typeInput = $modal.find('#type');
+  var $imageInput = $modal.find('#image');
+  var dataToPost = {
+    title: $titleInput.val(),
+    type: $typeInput.val(),
+    image: $imageInput.val()
+  };
+  // get current artist id
+  var artistId = $modal.data('artist-id');
+  // find url
+  var pieceUrl = ('/api/artists/' + artistId + '/pieces');
+  console.log('GOT TITLE: ', title, ' AND TYPE: ', type, ' FOR ARTIST W/ ID: ', artistId);
+  $.post(pieceUrl, dataToPost, handleNewPieceSubmitSuccess);
+}
+
+function handleNewPieceSubmitSuccess(piece) {
+  var $modal = $('#pieceModal');
+  var artistId = $modal.data('artist-id');
+  $.get('/api/artists/' + artistId, function(data) {
+    $('[data-artist-id=' + artistId + ']').remove();
+    renderPiece(data);
+  });
+  console.log('NEW PIECE POSTED', piece);
+}
+
+
+
+
+
+
+
+
+
+
 // function handleNewPieceSave(e) {
-//   e.preventDefault();
-//   var $modal = $('#pieceModal');
-//   var $titleInput = $('#title');
-//   var $typeInput = $('#type');
-//   var $imageInput = $('#image');
-//
-//   var dataToPost = {
-//     title: $titleInput.val(),
-//     type: $typeInput.val(),
-//     image: $imageInput.val()
-//   };
-//   var artistId = $modal.data('artist-id');
-//   console.log('GOT TITLE: ', title, ' AND TYPE: ', type, ' FOR ALBUM W/ ID: ', artistId);
-// }

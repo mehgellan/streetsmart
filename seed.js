@@ -26,23 +26,21 @@ var artistsList = [
   },
   {
     name: 'Unknown',
-    contact: 'none'
+    contact: null
   }
 ];
 
 var piecesList = [
   {
-  title: 'Honey Bears',
-  type: 'Painting',
-  location: 'Duboce Dog Park, Duboce Ave, SF',
-  image: 'http://67.media.tumblr.com/4e3b8075457766516209c96c212b575b/tumblr_nyacm3tLg21sc86jyo1_1280.jpg',
-  active: true,
-  note: 'Seein these all over da city!',
-  artist: 'Fnnch'
-},
-{
-
-}];
+    title: 'Honey Bears',
+    type: 'Painting',
+    location: 'Duboce Dog Park, Duboce Ave, SF',
+    image: 'http://67.media.tumblr.com/4e3b8075457766516209c96c212b575b/tumblr_nyacm3tLg21sc86jyo1_1280.jpg',
+    active: true,
+    note: 'Seein these all over da city!',
+    artist: 'Fnnch'
+  }
+];
 
 
 db.Artist.remove({}, function(err, removedArtists) {
@@ -63,12 +61,6 @@ db.Artist.remove({}, function(err, removedArtists) {
         });
       });
     });
-//     // db.Piece.remove({}, function(err, removedPieces) {
-//     //   console.log('REMOVED ALL PIECES');
-//     //   db.Piece.create(piecesList, function(err, createdPieces) {
-//     //     console.log(createdPieces);
-//     //   });
-//     // });
   });
 });
 
