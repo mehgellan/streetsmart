@@ -41,6 +41,8 @@ app.put('/api/artists/:artist_id/pieces/:piece_id', controllers.pieces.update);
 
 app.delete('/api/artists/:artist_id/pieces/:piece_id', controllers.pieces.destroy);
 
+app.get('/api/pieces', controllers.pieces.piecesByArtist);
+
 // app.get('/api/pieces/:id', controllers.pieces.show);
 //
 // app.post('/api/pieces', controllers.pieces.create);

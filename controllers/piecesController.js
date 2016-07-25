@@ -27,6 +27,16 @@ function show(req, res) {
     });
 }
 
+function piecesByArtist(req, res) {
+  var artistId = req.params.artist_id;
+  db.Piece.find({artist: artistId})
+    .populate(artist)
+    .exec(function(err, pieces){
+      console.log(pieces);
+      res.json(pieces);
+    });
+}
+
 // req.body = {
 //   title: 'A TITLE',
 //   type: 'mural',

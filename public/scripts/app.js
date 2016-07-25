@@ -16,7 +16,7 @@ $(document).on('ready', function() {
   $('#artists').on('click', '.delete-artist', handleDeleteArtist);
 
   // SHOW PIECES
-  $('.show-pieces').on('click', handleShowPieces);
+  $('#artists').on('click', '.show-pieces', handleShowPieces);
 
   // ADD AN ARTIST
   $('#savePiece').on('click', handleNewPieceSubmit);
@@ -135,14 +135,16 @@ function renderImages(image) {
 }
 
 function getAllImages(artist) {
-  $.get('/api/artists/' + artist._id, function(artist) {
-    var artistId = artist._id;
-    // console.log(artistId);
-    $.get('/api/artists/' + artistId + '/pieces', function(pieces) {
-      pieces.forEach(function(piece) {
-        // console.log('PIECE:', piece);
-        renderImages(piece);
-      });
-    });
+  $.get('/api/piecesByArtist/' + artist._id, function(artist) {
+    // TODO: Except an array of art pieces all having aristId of artist._id
+
+    // var artistId = artist._id;
+    // // console.log(artistId);
+    // $.get('/api/artists/' + artistId + '/pieces', function(pieces) {
+    //   pieces.forEach(function(piece) {
+    //     // console.log('PIECE:', piece);
+    //     renderImages(piece);
+    //   });
+    // });
   });
 }
