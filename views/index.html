@@ -100,12 +100,12 @@
 
                       <li class="list-group-item">
                         <h3 class="inline-header">Name:</h3>
-                        <span class="piece-title">{{name}}</span>
+                        <span class="artistName">{{name}}</span>
                       </li>
 
                       <li class="list-group-item">
                         <h3 class="inline-header">Social Media:</h3>
-                        <span class="piece-type">{{contact}}</span>
+                        <span class="contact"><a href="{{contact}}">Instagram</span>
                       </li>
 
                     </ul>
@@ -133,20 +133,25 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"></button>
-          <h4 class="modal-title">Piece</h4>
+          <h4 class="modal-title">Pieces</h4>
         </div>
 
         <div class="modal-body" id="pieces-list">
 
           <script id="piece-template" type="text/x-handlebars-template">
-            <li class="list-group-item">
-              <h3 class="inline-header">Pieces:</h3>
-              <ul>
-                <li>{{title}}</li>
-                <li>{{type}}</li>
-                <li><img src="{{image}}"></li>
-              </ul>
-            </li>
+            <div class="list row">
+              <h3 class="inline-header">Piece:</h3>
+              <div class="col-md-8">
+                <div class="row">
+                  <img src="{{image}}" class="img-responsive">
+                </div>
+                <div class="row">
+                  <div class="col-md-3"><span>Title: </span>{{title}}</div>
+                  <div class="col-md-3"><span>Type: </span>{{type}}</div>
+                </div>
+
+              </div>
+            </div>
           </script>
 
           <!-- <fieldset class="form-horizontal">

@@ -15,9 +15,8 @@ $(document).on('ready', function() {
   // DELETE AN ARTIST
   $('#artists').on('click', '.delete-artist', handleDeleteArtist);
 
-  // ADD A PIECE
+  // SHOW PIECES
   $('#artists').on('click', '.show-pieces', handleShowPieces);
-  $('#savePiece').on('click', handleNewPieceSave);
 
 });
 
@@ -58,8 +57,8 @@ function deleteArtistSuccess(data) {
   $('div[data-artist-id=' + deletedArtistId + ']').remove();
 }
 
-function handleShowPieces() {
-  console.log('SHOW PIECE CLICKED');
+function handleShowPieces(e) {
+  e.preventDefault();
   var currentArtistId = $(this).closest('.artist').data('artist-id');
   console.log('ID', currentArtistId);
   $('#pieceModal').data('artist-id', currentArtistId);
@@ -72,6 +71,7 @@ function handleShowPieces() {
 }
 
 function handleShowAllPiecesSuccess(pieces) {
+  $('.list').remove();
   pieces.forEach(function(piece) {
     renderPiece(piece);
   });

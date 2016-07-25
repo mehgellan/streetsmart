@@ -8,49 +8,36 @@ JUMBOTRON
   background-color: #990050;
 }
 
-
-
-
 /*******************************
-GALLERY
+ARTIST
 *******************************/
+
 
 #gallery {
   background-color: #005580;
 }
 
-img {
+/*img {
   height:250px;
   width:250px;
-}
-
-
-
-
-/*******************************
-FORM - ADD PIECE
-*******************************/
+}*/
 
 #piece-form {
   background-color: #fa8072;
 }
 
 
-/*******************************
-ONE PIECE
-*******************************/
-
-
-
 
 /*******************************
-MODAL - ADD ARTIST
+PIECE MODAL
 *******************************/
 
+li {
+  list-style-type: none;
+  display: inline-block;
+}
 
-
-
-
-/*******************************
-ARTIST
-*******************************/
+span {
+  font-size:18px;
+  font-weight:bolder;
+}
