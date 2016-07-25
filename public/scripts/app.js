@@ -5,7 +5,7 @@ $(document).on('ready', function() {
   $.get('/api/artists', onSuccess);
 
   // GET ALL PIECES
-  $.get('/api/artists/', handleAllPieces);
+  $.get('/api/artists', handleAllPieces);
 
   // ADD AN ARTIST
   $('#artist-form form').on('submit', function(e) {
@@ -26,21 +26,23 @@ $(document).on('ready', function() {
 
 });
 
-function handleAllPieces(artists) {
-  artists.forEach(function(artist) {
-    $.get('/api/artists', function(artists) {
-      artists.forEach(function(artist) {
-        console.log(artist.pieces);
-      });
-    });
-  });
-}
-
 
 function onSuccess(artists) {
   console.log('FOUND AN ARTIST', artists);
   artists.forEach(function(artist) {
     renderArtist(artist);
+    console.log(artist._id);
+    $.get('/api/artists/' + artist._id, function(artist) {
+      var artistId = artist._id;
+      console.log(artistId);
+      $.get('/api/artists/' + artistId + '/pieces', function(pieces) {
+        pieces.forEach(function(piece) {
+          console.log('PIECE:', piece);
+          renderImages(piece);
+        });
+      });
+    });
+
   });
 }
 
@@ -134,4 +136,12 @@ function handleNewPieceSubmit(e) {
   $titleInput.val('');
   $typeInput.val('');
   $imageInput.val('');
+}
+
+function renderImages(image) {
+  console.log(image);
+  var imageHtml = $('#gallery-template').html();
+  var templateFunction = Handlebars.compile(imageHtml);
+  var templatedImagesHtml = templateFunction(image);
+  $('#gallery').prepend(templatedImagesHtml);
 }
