@@ -30,28 +30,12 @@ function show(req, res) {
 function piecesByArtist(req, res) {
   var artistId = req.params.artist_id;
   db.Piece.find({artist: artistId})
-    .populate(artist)
-    .exec(function(err, pieces){
-      console.log(pieces);
+    .populate('artist')
+    .exec(function(err, pieces) {
+      if (err) { return console.log('ERROR', err); }
       res.json(pieces);
     });
 }
-
-// req.body = {
-//   title: 'A TITLE',
-//   type: 'mural',
-//   image: 'http://the-image.jpg'
-// }
-// artistId = '317fjd17f1lg8401k33'
-
-// pieceData = {
-//   title: 'A TITLE',
-//   type: 'mural',
-//   image: 'http://the-image.jpg',
-//   artist: '317fjd17f1lg8401k33'
-// }
-
-// db.Piece.create(pieceData)
 
 function create(req, res) {
   var artistId = req.params.artist_id;
@@ -127,20 +111,20 @@ function destroy(req, res) {
 //   });
 // }
 //
-// function update(req, res) {
-//   var pieceId = req.params.id;
-//   db.Piece.findOne({_id: pieceId}, function(err, foundPiece) {
-//     if (err) { return console.log('PIECE NOT FOUND'); }
-//     console.log(foundPiece);
-//     foundPiece.title = req.body.title;
-//     foundPiece.type = req.body.type;
-//     foundPiece.save(function(err, savedPiece) {
-//       if (err) { return console.log('SAVE ERROR'); }
-//       res.json(savedPiece);
-//       console.log('SAVED UPDATED PIECE', savedPiece);
-//     });
-//   });
-// }
+function update(req, res) {
+  var pieceId = req.params.id;
+  db.Piece.findOne({_id: pieceId}, function(err, foundPiece) {
+    if (err) { return console.log('PIECE NOT FOUND'); }
+    console.log(foundPiece);
+    foundPiece.title = req.body.title;
+    foundPiece.type = req.body.type;
+    foundPiece.save(function(err, savedPiece) {
+      if (err) { return console.log('SAVE ERROR'); }
+      res.json(savedPiece);
+      console.log('SAVED UPDATED PIECE', savedPiece);
+    });
+  });
+}
 
 
 
@@ -149,5 +133,6 @@ module.exports = {
   show: show,
   create: create,
   update: update,
-  destroy: destroy
+  destroy: destroy,
+  piecesByArtist: piecesByArtist
 };

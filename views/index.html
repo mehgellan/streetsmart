@@ -29,9 +29,53 @@
     <!-- GALLERY -->
   <section class="container-fluid" id="gallery">
     <script id="gallery-template" type="text/x-handlebars-template">
-          <img src="{{image}}" class="img-fluid thumbnail">
+      <img src="{{image}}" class="img-fluid thumbnail">
     </script>
   </section>
+
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="imagesModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"></button>
+          <h4 class="modal-title">Pieces</h4>
+        </div>
+
+        <div class="modal-body" id="images-list">
+
+          <!-- PIECE MODAL FORM -->
+          <fieldset class="form-horizontal">
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="title">Piece Title</label>
+              <div class="col-md-4">
+                <input id="title" name="title" type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="type">Type</label>
+              <div class="col-md-4">
+                <input id="type" name="type" type="text" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="image">Image</label>
+              <div class="col-md-4">
+                <input id="image" type="text" class="form-control" required>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default-outline" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary-outline" id="savePieceChanges">Save Piece</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ARTIST FORM -->
   <section class="container">
