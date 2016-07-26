@@ -22,12 +22,12 @@ $(document).on('ready', function() {
   $('#savePiece').on('click', handleNewPieceSubmit);
 
   // EDIT A PIECE
-  // $('thumbnail').on('click', handleEditPieceClick);
+  $('body').on('click', '.thumbnail', handleEditPieceClick);
 
 });
 
 function onSuccess(artists) {
-  console.log('FOUND AN ARTIST', artists);
+  // console.log('FOUND AN ARTIST', artists);
   artists.forEach(function(artist) {
     renderArtist(artist);
     // console.log(artist._id);
@@ -37,8 +37,8 @@ function onSuccess(artists) {
 }
 
 function renderArtist(artist) {
-  console.log('RENDERING ARTIST', artist);
-  console.log('GET NAME OFF ARTIST', artist.name);
+  // console.log('RENDERING ARTIST', artist);
+  // console.log('GET NAME OFF ARTIST', artist.name);
   var artistHtml = $('#artist-template').html();
   var templateFunction = Handlebars.compile(artistHtml);
   var templatedArtistHtml = templateFunction(artist);
@@ -46,7 +46,7 @@ function renderArtist(artist) {
 }
 
 function handleNewArtist(artist) {
-  console.log('NEW ARTIST POST', artist.name);
+  // console.log('NEW ARTIST POST', artist.name);
   renderArtist(artist);
 }
 
@@ -68,10 +68,10 @@ function deleteArtistSuccess(data) {
 }
 
 function handleShowPieces(e) {
-  console.log('SHOW PIECES CLICKED');
+  // console.log('SHOW PIECES CLICKED');
   e.preventDefault();
   var currentArtistId = $(this).closest('.artist').data('artist-id');
-  console.log('ID', currentArtistId);
+  // console.log('ID', currentArtistId);
   $('#pieceModal').data('artist-id', currentArtistId);
   $.ajax({
     method: 'GET',
@@ -95,12 +95,9 @@ function renderPiece(piece) {
   $('#pieces-list').prepend(templatedPieceHtml);
 }
 
-
 // ADD NEW PIECE ON SUBMIT
 function handleNewPieceSubmit(e) {
   e.preventDefault();
-
-  // get data from form
   var $modal = $('#pieceModal');
   var $titleInput = $modal.find('#title');
   var $typeInput = $modal.find('#type');
@@ -110,30 +107,15 @@ function handleNewPieceSubmit(e) {
     type: $typeInput.val(),
     image: $imageInput.val()
   };
-
-  // get current artist id
   var artistId = $modal.data('artist-id');
-
-  // find url
   var pieceUrl = ('/api/artists/' + artistId + '/pieces');
-
-  // post data to db
   $.post(pieceUrl, dataToPost, function(piece) {
     console.log('NEW PIECE POSTED', piece);
     renderPiece(piece);
   });
-
-  // clear the form
   $titleInput.val('');
   $typeInput.val('');
   $imageInput.val('');
-}
-
-function renderImages(image) {
-  var imageHtml = $('#gallery-template').html();
-  var templateFunction = Handlebars.compile(imageHtml);
-  var templatedImagesHtml = templateFunction(image);
-  $('#gallery').prepend(templatedImagesHtml);
 }
 
 function getAllImages(artist) {
@@ -147,4 +129,18 @@ function getAllImages(artist) {
       });
     });
   });
+ }
+
+ function renderImages(image) {
+   var imageHtml = $('#gallery-template').html();
+   var templateFunction = Handlebars.compile(imageHtml);
+   var templatedImagesHtml = templateFunction(image);
+   $('#gallery').prepend(templatedImagesHtml);
+ }
+
+ function handleEditPieceClick(e) {
+   e.preventDefault();
+   var pieceId = $(this).data('piece-id');
+   console.log(pieceId);
+   console.log('PIECE CLICKED');
  }
