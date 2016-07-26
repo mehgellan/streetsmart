@@ -133,6 +133,7 @@ function getAllImages(artist) {
   $.get('/api/artists/' + artistId + '/pieces/' + pieceId, function(piece) {
     renderOnePiece(piece);
   });
+  $('#singlePiece').html('');
   $('#singlePieceModal').modal();
  }
 
@@ -140,6 +141,5 @@ function getAllImages(artist) {
     var singlePieceHtml = $('#single-piece-template').html();
     var templateFunction = Handlebars.compile(singlePieceHtml);
     var templatedPieceHtml = templateFunction(piece);
-    $('#singlePiece').empty();
     $('#singlePiece').prepend(templatedPieceHtml);
  }
