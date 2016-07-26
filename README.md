@@ -30,7 +30,7 @@ Heroku link to project : <https://hidden-citadel-79874.herokuapp.com/>
 
 ### Screenshots
 
-Gallery: (/images/screenshots/gallery.png)
+Gallery: (/public/images/screenshots/gallery.png)
 Single Piece: (/images/screenshots/singlePieceModal.png)
 Artists: (/images/screenshots/artists.png)
 Artist pieces: (/images/screenshots/allPiecesModal.png)
