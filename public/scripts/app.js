@@ -29,7 +29,9 @@ $(document).on('ready', function() {
 });
 
 function handleClearModal(e) {
+  console.log('CLOSE BUTTON CLICKED');
   e.preventDefault();
+  $('#singlePiece').html();
 }
 
 function onSuccess(artists) {
