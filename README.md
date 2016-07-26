@@ -24,6 +24,7 @@ Heroku link to project : <https://hidden-citadel-79874.herokuapp.com/>
 
 #### Planned Features
 - Google Maps API to show location of art pieces around San Francisco
+- Auth admin to handle Update and Delete
 - Full CRUD for both databases
 - Cleaner, more professional styling
 - More complete database of art pieces
@@ -32,6 +33,6 @@ Heroku link to project : <https://hidden-citadel-79874.herokuapp.com/>
 ### Screenshots
 
 ![Gallery:](http://i.imgur.com/z683T9C.png "Gallery")
-![Single Piece:](http://i.imgur.com/BaKeqqu.png)
-![Artists:](http://i.imgur.com/M6ajuFr.png)
-![Artist pieces:](http://i.imgur.com/fhdHbL9.png)
+![Single Piece:](http://i.imgur.com/BaKeqqu.png "Single Piece Modal")
+![Artists:](http://i.imgur.com/M6ajuFr.png "Artists")
+![Artist pieces:](http://i.imgur.com/fhdHbL9.png "Artist Pieces")
