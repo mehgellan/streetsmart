@@ -31,7 +31,7 @@ $(document).on('ready', function() {
 function handleClearModal(e) {
   console.log('CLOSE BUTTON CLICKED');
   e.preventDefault();
-  $('#singlePiece').html();
+
 }
 
 function onSuccess(artists) {
@@ -165,5 +165,6 @@ function getAllImages(artist) {
     var singlePieceHtml = $('#single-piece-template').html();
     var templateFunction = Handlebars.compile(singlePieceHtml);
     var templatedPieceHtml = templateFunction(piece);
+    $('#singlePiece').empty();
     $('#singlePiece').prepend(templatedPieceHtml);
  }

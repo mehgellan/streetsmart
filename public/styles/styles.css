@@ -8,10 +8,13 @@ JUMBOTRON
   background-color: #990050;
 }
 
-/*******************************
-ARTIST
-*******************************/
 
+
+
+
+/*******************************
+GALLERY
+*******************************/
 
 #gallery {
   background-color: #005580;
@@ -27,6 +30,23 @@ img {
 #piece-form {
   background-color: #fa8072;
 }
+
+
+
+
+/*******************************
+ARTISTS
+*******************************/
+
+.artists fieldset {
+  padding:10px;
+}
+
+.artists legend {
+  margin:0;
+}
+
+
 
 
 
