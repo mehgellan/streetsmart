@@ -104,6 +104,33 @@ var piecesList = [
     note: null,
     artist: 'Unknown'
   },
+  {
+    title: 'Houses',
+    type: 'Mural',
+    location: 'the Mission, SF',
+    image: '/images/houses.JPG',
+    active: true,
+    note: 'Look at all the happy little houses, such a delicate piece',
+    artist: 'Unknown'
+  },
+  {
+    title: 'Dangerous',
+    type: 'Mural',
+    location: 'Clarion Alley, the Mission, SF',
+    image: '/images/dangerous.JPG',
+    active: true,
+    note: 'Be dangerous!',
+    artist: 'Unknown'
+  },
+  {
+    title: 'Doodles',
+    type: 'Mural',
+    location: 'Clarion Alley, the Mission, SF',
+    image: '/images/doodles.JPG',
+    active: false,
+    note: null,
+    artist: 'Unknown'
+  },
 ];
 
 
