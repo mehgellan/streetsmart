@@ -140,7 +140,9 @@ function getAllImages(artist) {
 
  function handleEditPieceClick(e) {
    e.preventDefault();
-   var pieceId = $(this).data('piece-id');
-   console.log(pieceId);
+   var pieceId = $(this).closest('.piece-image').data('piece-id');
+   var artistId = $(this).closest('.piece-image').data('artist-id');
+   console.log('ARTIST ID:', artistId, 'PIECE ID:', pieceId);
+  //  console.log(pieceId);
    console.log('PIECE CLICKED');
  }
