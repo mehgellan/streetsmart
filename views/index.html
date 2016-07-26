@@ -34,6 +34,41 @@
         <p></p>
       </div>
     </script>
+    <!-- SINGLE PIECE MODAL -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="singlePieceModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"></button>
+            <h4 class="modal-title">Artist Pieces</h4>
+          </div>
+
+          <div class="modal-body" id="singlePiece">
+            <script id="single-piece-template" type="text/x-handlebars-template">
+              <div class="row">
+                <!-- <h3 class="inline-header">{{title}}</h3> -->
+                <div class="col-md-8">
+                  <div class="row single-piece-html">
+                    <img src="{{image}}" class="img-responsive thumbnail">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3"><span>Title: </span>{{title}}</div>
+                    <div class="col-md-3"><span>Type: </span>{{type}}</div>
+                    <div class="col"></div>
+                  </div>
+
+                </div>
+              </div>
+            </script>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default-outline" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary-outline" id="savePiece">Save Piece</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
 
@@ -173,7 +208,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-default-outline" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default-outline" id="closeBtn" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary-outline" id="savePiece">Save Piece</button>
         </div>
       </div>

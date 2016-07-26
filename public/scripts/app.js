@@ -22,9 +22,15 @@ $(document).on('ready', function() {
   $('#savePiece').on('click', handleNewPieceSubmit);
 
   // EDIT A PIECE
-  $('body').on('click', '.thumbnail', handleEditPieceClick);
+  $('body').on('click', '.thumbnail', handleShowPieceClick);
+
+  $('body').on('click', '#closeBtn', handleClearModal);
 
 });
+
+function handleClearModal(e) {
+  e.preventDefault();
+}
 
 function onSuccess(artists) {
   // console.log('FOUND AN ARTIST', artists);
@@ -138,11 +144,24 @@ function getAllImages(artist) {
    $('#gallery').prepend(templatedImagesHtml);
  }
 
- function handleEditPieceClick(e) {
+ function handleShowPieceClick(e) {
    e.preventDefault();
    var pieceId = $(this).closest('.piece-image').data('piece-id');
    var artistId = $(this).closest('.piece-image').data('artist-id');
    console.log('ARTIST ID:', artistId, 'PIECE ID:', pieceId);
   //  console.log(pieceId);
-   console.log('PIECE CLICKED');
+  //  console.log('PIECE CLICKED');
+  $.get('/api/artists/' + artistId + '/pieces/' + pieceId, function(piece) {
+    console.log(piece);
+    renderOnePiece(piece);
+  });
+  $('#singlePieceModal').modal();
+  // $('.single-piece-html').empty();
+ }
+
+ function renderOnePiece(piece) {
+    var singlePieceHtml = $('#single-piece-template').html();
+    var templateFunction = Handlebars.compile(singlePieceHtml);
+    var templatedPieceHtml = templateFunction(piece);
+    $('#singlePiece').prepend(templatedPieceHtml);
  }
