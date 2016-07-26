@@ -7,6 +7,7 @@
   <title>streetsmart</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="styles/styles.css">
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -135,8 +136,8 @@
                   </div>
                 </div>
                 <div class='panel-footer'>
-                  <button class="btn btn-info show-pieces">Show Pieces</button>
-                  <button class="btn btn-warning delete-artist">Delete Artist</button>
+                  <button class="btn btn-info show-pieces">Show Pieces for {{name}}</button>
+                  <button class="btn btn-warning delete-artist">Delete</button>
                   <!-- <button class="btn btn-primary edit-artist">Edit Artist</button>
                   <button class="btn btn-success save-artist">Save Artist</button> -->
                 </div>
@@ -160,7 +161,6 @@
         <div class="modal-body" id="pieces-list">
 
           <!-- PIECE MODAL FORM -->
-          <form>
           <fieldset class="form-horizontal">
             <h3><span>Add a piece!</span></h3>
             <div class="form-group">
@@ -184,6 +184,7 @@
               </div>
             </div>
           </fieldset>
+
           <!-- PIECE MODAL TEMPLATE-->
           <script id="piece-template" type="text/x-handlebars-template">
             <div class="list row">

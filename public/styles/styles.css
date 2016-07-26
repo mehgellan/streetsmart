@@ -7,7 +7,7 @@ JUMBOTRON
 *******************************/
 
 .jumbotron {
-  background-color: #990050;
+  background-color: rgb(50, 125, 191);
 }
 
 
@@ -19,7 +19,7 @@ GALLERY
 *******************************/
 
 #gallery {
-  background-color: #005580;
+  background-color: rgba(3, 47, 141, 0.8);
 }
 
 img {
@@ -52,6 +52,10 @@ ARTISTS
   margin:0;
 }
 
+h3 {
+  font-family: 'Permanent Marker', cursive;
+
+}
 
 
 
@@ -70,6 +74,7 @@ PIECE MODAL
 }
 
 #pieceModal h3 {
+  font-family: 'Permanent Marker', cursive;
   color: rgb(76, 167, 176);
 }
 
@@ -88,6 +93,8 @@ h3 span {
 }
 
 .modal-title {
+  font-family: 'Permanent Marker', cursive;
+
   font-weight: bolder;
   font-size:24px;
   color: rgb(217, 58, 102);
