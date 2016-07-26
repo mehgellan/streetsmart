@@ -23,7 +23,6 @@ $(document).on('ready', function() {
   // EDIT A PIECE
   $('body').on('click', '.thumbnail', handleShowPieceClick);
 
-  $('body').on('click', '#closeBtn', handleClearModal);
 
 });
 

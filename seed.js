@@ -27,7 +27,7 @@ var piecesList = [
     title: 'Honey Bears',
     type: 'Painting',
     location: 'Duboce Dog Park, Duboce Ave, SF',
-    image: 'http://67.media.tumblr.com/4e3b8075457766516209c96c212b575b/tumblr_nyacm3tLg21sc86jyo1_1280.jpg',
+    image: 'https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/12479568_1797222580505210_815189406_n.jpg',
     active: true,
     note: 'Seein these all over da city!',
     artist: 'Fnnch'
