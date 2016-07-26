@@ -14,6 +14,7 @@ Heroku link to project : <https://hidden-citadel-79874.herokuapp.com/>
 * Google font: 'Permanent Marker', cursive
 
 ### Existing Features
++ list of REST routes can be found '/api'
 + Used Mongoose to create database of artist Models and pieces of art Models using reference relationship
 + Many event listeners to handle button clicks and AJAX requests
 + Made use of forms and POSTS to add new features to database
