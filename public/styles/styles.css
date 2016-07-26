@@ -2,11 +2,24 @@ body {
   background-image: url('/images/pavement.jpg');
 }
 
+h1 {
+  font-family: 'Permanent Marker', cursive;
+}
+
 /*******************************
 JUMBOTRON
 *******************************/
 
 .jumbotron {
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  background-image: url('/images/psychadeic-walk.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
   background-color: rgb(50, 125, 191);
 }
 
@@ -37,6 +50,30 @@ img {
 
 
 /*******************************
+PIECE MODAL
+*******************************/
+
+
+#singlePieceModal img {
+  height:150px;
+  width:150px;
+}
+
+#singlePiece span {
+  font-size:18px;
+  color:rgb(50, 125, 191)
+}
+
+
+
+
+
+
+
+
+
+
+/*******************************
 ARTISTS
 *******************************/
 
@@ -44,17 +81,27 @@ ARTISTS
   margin: 10px;
 }
 
+.artistTitleForm {
+  background-color: rgba(128,128,128, 0.5);
+  margin: 20px;
+}
+
 .artists fieldset {
   padding:10px;
 }
 
 .artists legend {
+  font-family:'Permanent Marker', cursive;
   margin:0;
 }
 
-h3 {
+h2 {
+  color: rgb(217, 58, 102);
   font-family: 'Permanent Marker', cursive;
+}
 
+.artistName, .contact {
+  font-family: 'Permanent Marker', cursive;
 }
 
 
