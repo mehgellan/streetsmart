@@ -1,4 +1,3 @@
-console.log('JS is linked');
 $(document).on('ready', function() {
 
   // GET ALL ARTISTS
@@ -28,25 +27,15 @@ $(document).on('ready', function() {
 
 });
 
-function handleClearModal(e) {
-  console.log('CLOSE BUTTON CLICKED');
-  e.preventDefault();
-
-}
-
 function onSuccess(artists) {
-  // console.log('FOUND AN ARTIST', artists);
   artists.forEach(function(artist) {
     renderArtist(artist);
-    // console.log(artist._id);
     getAllImages(artist);
 
   });
 }
 
 function renderArtist(artist) {
-  // console.log('RENDERING ARTIST', artist);
-  // console.log('GET NAME OFF ARTIST', artist.name);
   var artistHtml = $('#artist-template').html();
   var templateFunction = Handlebars.compile(artistHtml);
   var templatedArtistHtml = templateFunction(artist);
@@ -54,14 +43,12 @@ function renderArtist(artist) {
 }
 
 function handleNewArtist(artist) {
-  // console.log('NEW ARTIST POST', artist.name);
   renderArtist(artist);
 }
 
 function handleDeleteArtist(e) {
   e.preventDefault();
   var artistId = $(this).parents('.artist').data('artist-id');
-  console.log(artistId);
   $.ajax({
     method: 'DELETE',
     url: '/api/artists/' + artistId,
@@ -71,15 +58,12 @@ function handleDeleteArtist(e) {
 
 function deleteArtistSuccess(data) {
   var deletedArtistId = data._id;
-  console.log('DELETED ARTIST', deletedArtistId);
   $('div[data-artist-id=' + deletedArtistId + ']').remove();
 }
 
 function handleShowPieces(e) {
-  // console.log('SHOW PIECES CLICKED');
   e.preventDefault();
   var currentArtistId = $(this).closest('.artist').data('artist-id');
-  // console.log('ID', currentArtistId);
   $('#pieceModal').data('artist-id', currentArtistId);
   $.ajax({
     method: 'GET',
@@ -118,7 +102,6 @@ function handleNewPieceSubmit(e) {
   var artistId = $modal.data('artist-id');
   var pieceUrl = ('/api/artists/' + artistId + '/pieces');
   $.post(pieceUrl, dataToPost, function(piece) {
-    console.log('NEW PIECE POSTED', piece);
     renderPiece(piece);
   });
   $titleInput.val('');
@@ -129,10 +112,8 @@ function handleNewPieceSubmit(e) {
 function getAllImages(artist) {
   $.get('/api/artists/' + artist._id, function(artist) {
     var artistId = artist._id;
-    // console.log(artistId);
     $.get('/api/artists/' + artistId + '/pieces', function(pieces) {
       pieces.forEach(function(piece) {
-        // console.log('PIECE:', piece);
        renderImages(piece);
       });
     });
@@ -150,15 +131,10 @@ function getAllImages(artist) {
    e.preventDefault();
    var pieceId = $(this).closest('.piece-image').data('piece-id');
    var artistId = $(this).closest('.piece-image').data('artist-id');
-   console.log('ARTIST ID:', artistId, 'PIECE ID:', pieceId);
-  //  console.log(pieceId);
-  //  console.log('PIECE CLICKED');
   $.get('/api/artists/' + artistId + '/pieces/' + pieceId, function(piece) {
-    console.log(piece);
     renderOnePiece(piece);
   });
   $('#singlePieceModal').modal();
-  // $('.single-piece-html').empty();
  }
 
  function renderOnePiece(piece) {

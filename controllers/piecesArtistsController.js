@@ -13,8 +13,7 @@ function index(req, res) {
 function show(req, res) {
   var artistId = req.params.id;
   db.Artist.findOne({_id: artistId}, function(err, foundArtistId) {
-    if (err) { return console.log('ERROR', err); }
-    console.log('FOUND ARTIST ID', foundArtistId);
+    if (err) { res.sendStatus(404); }
     res.json(foundArtistId);
   });
 }
@@ -22,8 +21,7 @@ function show(req, res) {
 function create(req, res) {
   var newArtist = req.body;
   db.Artist.create(newArtist, function(err, artist) {
-    if (err) { return console.log('ERROR', err); }
-    console.log('NEW ARTIST', artist);
+    if (err) { res.sendStatus(404); }
     res.json(artist);
   });
 }
@@ -31,14 +29,12 @@ function create(req, res) {
 function update(req, res) {
   var artistId = req.params.id;
   db.Artist.findOne({_id: artistId}, function(err, foundArtist) {
-    if (err) { return console.log('ERROR', err); }
-    console.log('FOUND ARTIST', foundArtist);
+    if (err) { res.sendStatus(404); }
     foundArtist.name = req.body.name;
     foundArtist.contact = req.body.contact;
     foundArtist.save(function(err, savedArtist) {
-      if (err) { return console.log('ERROR', err); }
+      if (err) { res.sendStatus(404); }
       res.json(savedArtist);
-      console.log('UPDATED ARTIST', savedArtist);
     });
 
   });
@@ -47,9 +43,8 @@ function update(req, res) {
 function destroy(req, res) {
   var artistId = req.params.id;
   db.Artist.findOneAndRemove({_id: artistId}, function(err, removedArtist) {
-    if (err) { return console.log('ERROR', err); }
+    if (err) { res.sendStatus(404); }
     res.json(removedArtist);
-    console.log('REMOVED ARTIST', removedArtist);
   });
 }
 
