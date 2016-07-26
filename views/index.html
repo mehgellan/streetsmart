@@ -46,7 +46,6 @@
           <div class="modal-body" id="singlePiece">
             <script id="single-piece-template" type="text/x-handlebars-template">
               <div class="row">
-                <!-- <h3 class="inline-header">{{title}}</h3> -->
                 <div class="col-md-8">
                   <div class="row single-piece-html">
                     <img src="{{image}}" class="img-responsive thumbnail">
@@ -90,20 +89,16 @@
             <fieldset>
               <legend>Add New Artist</legend>
 
-              <div class="form-group">
-                <label for="name" class="col-md-4 control-label">Artist Name :</label>
-                <div class="col-md-4">
-                  <input type="text" name="name">
+              <div class="col-md-10">
+                <div class="form-group col-md-4">
+                  <input type="text" name="name" placeholder="Artist Name">
                 </div>
-              </div>
 
-              <div class="form-group">
-                <label for="contact" class="col-md-4 control-label">Social Media Link :</label>
-                <div class="col-md-4">
-                  <input type="text" name="contact">
+                <div class="form-group col-md-4">
+                  <input type="text" name="contact" placeholder="Social Media Link">
                 </div>
+                <button id="artist-save" class="btn btn-primary center-block">Save</button>
               </div>
-              <button id="artist-save" class="btn btn-primary">Save</button>
             </fieldset>
           </form>
         </div>
@@ -132,7 +127,7 @@
 
                       <li class="list-group-item">
                         <h3 class="inline-header">Social Media:</h3>
-                        <span class="contact"><a href="{{contact}}">Check out their stuff!</span>
+                        <span class="contact">{{#if contact}}<a href="{{contact}}">Check out their stuff!</span>{{else}}<span>n/a</span>{{/if}}
                       </li>
 
                     </ul>
@@ -162,26 +157,12 @@
           <button type="button" class="close" data-dismiss="modal"></button>
           <h4 class="modal-title">Artist Pieces</h4>
         </div>
-
         <div class="modal-body" id="pieces-list">
 
-          <script id="piece-template" type="text/x-handlebars-template">
-            <div class="list row">
-              <!-- <h3 class="inline-header">{{title}}</h3> -->
-              <div class="col-md-8">
-                <div class="row piece-image">
-                  <img src="{{image}}" class="img-responsive thumbnail">
-                </div>
-                <div class="row">
-                  <div class="col-md-3"><span>Title: </span>{{title}}</div>
-                  <div class="col-md-3"><span>Type: </span>{{type}}</div>
-                </div>
-
-              </div>
-            </div>
-          </script>
           <!-- PIECE MODAL FORM -->
+          <form>
           <fieldset class="form-horizontal">
+            <h3><span>Add a piece!</span></h3>
             <div class="form-group">
               <label class="col-md-4 control-label" for="title">Piece Title</label>
               <div class="col-md-4">
@@ -203,6 +184,20 @@
               </div>
             </div>
           </fieldset>
+          <!-- PIECE MODAL TEMPLATE-->
+          <script id="piece-template" type="text/x-handlebars-template">
+            <div class="list row">
+              <div class="col-md-8">
+                <div class="piece-image">
+                  <img src="{{image}}" class="img-responsive thumbnail">
+                </div>
+                <div class="row">
+                  <div><span>Title: </span>{{title}}</div>
+                  <div><span>Type: </span>{{type}}</div>
+                </div>
+              </div>
+            </div>
+          </script>
         </div>
 
         <div class="modal-footer">
