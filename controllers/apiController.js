@@ -8,8 +8,11 @@ function index(req, res) {
       {method: 'GET', path: '/api/artists', description: 'Route to index all Artists'},
       {method: 'GET', path: '/api/artists/:id', description: 'Route to show an Artist'},
       {method: 'POST', path: '/api/artists', description: 'Route to create an Artist'},
-      {method: 'PUT', path: '/api/pieces/:id', description: 'Route to update an Artist'},
-      {method: 'DELETE', path: '/api/pieces/:id', description: 'Route to destory an Artist'}
+      {method: 'PUT', path: '/api/artists/:id', description: 'Route to update an Artist'},
+      {method: 'DELETE', path: '/api/artists/:id', description: 'Route to destory an Artist'},
+      {method: 'GET', path: '/api/artists/:artist_id/pieces', description: 'Route to read all pieces for an artist'},
+      {method: 'GET', path: '/api/artists/:artist_id/pieces/:piece_id', description: 'Route to read one piece for an artist'},
+      {method: 'POST', path: '/api/artists/:artist_id/pieces', description: 'Route to create a new piece for an artist'}
     ]
   });
 }
