@@ -9,7 +9,7 @@ function index(req, res) {
   db.Piece.find({artist: artistId})
     .populate('artist')
     .exec(function(err, pieces) {
-    if (err) { res.sendStatus(404); }
+      if (err) { res.sendStatus(404); }
     res.json(pieces);
   });
 }
@@ -21,7 +21,7 @@ function show(req, res) {
     .populate('artist')
     .exec(function(err, piece) {
       if (err) { res.sendStatus(404); }
-      res.json(piece);
+    res.json(piece);
     });
 }
 

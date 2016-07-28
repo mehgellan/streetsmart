@@ -1,6 +1,6 @@
-body {
+/*body {
   background-image: url('/images/pavement.jpg');
-}
+}*/
 
 h1 {
   font-family: 'Permanent Marker', cursive;
@@ -12,14 +12,9 @@ JUMBOTRON
 
 .jumbotron {
   color: white;
-  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
-  background-image: url('/images/psychadeic-walk.jpg');
+  /*background-image: url('/images/psychadeic-walk.jpg');
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size:cover;*/
   background-color: rgb(50, 125, 191);
 }
 
@@ -91,17 +86,7 @@ ARTISTS
 }
 
 .artists legend {
-  font-family:'Permanent Marker', cursive;
   margin:0;
-}
-
-h2 {
-  color: rgb(217, 58, 102);
-  font-family: 'Permanent Marker', cursive;
-}
-
-.artistName, .contact {
-  font-family: 'Permanent Marker', cursive;
 }
 
 
@@ -121,7 +106,6 @@ PIECE MODAL
 }
 
 #pieceModal h3 {
-  font-family: 'Permanent Marker', cursive;
   color: rgb(76, 167, 176);
 }
 
@@ -135,13 +119,7 @@ span {
   font-weight:bolder;
 }
 
-h3 span {
-  color:
-}
-
 .modal-title {
-  font-family: 'Permanent Marker', cursive;
-
   font-weight: bolder;
   font-size:24px;
   color: rgb(217, 58, 102);
