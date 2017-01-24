@@ -2,18 +2,16 @@ var express = require('express');
 var app = express();
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 
 var controllers = require('./controllers');
 
-
 /******* ROUTES ********/
-
 
 /* HTML ENDPOINTS */
 
-app.get('/', function homepage(req, res){
+app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
@@ -40,20 +38,6 @@ app.post('/api/artists/:artist_id/pieces', controllers.pieces.create);
 app.put('/api/artists/:artist_id/pieces/:piece_id', controllers.pieces.update);
 
 app.delete('/api/artists/:artist_id/pieces/:piece_id', controllers.pieces.destroy);
-
-
-
-
-// app.get('/api/pieces/:id', controllers.pieces.show);
-//
-// app.post('/api/pieces', controllers.pieces.create);
-//
-// app.put('/api/pieces/:id', controllers.pieces.update);
-//
-// app.get('/api/artists', controllers.piecesArtists.index);
-//
-// app.get('/api/artists/:artist_id/pieces/', controllers.pieces.index)
-
 
 /******* SERVER ********/
 

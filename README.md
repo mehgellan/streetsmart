@@ -13,6 +13,21 @@ Heroku link to project : <https://hidden-citadel-79874.herokuapp.com/>
 * Bootstrap: grid system, responsive styling, buttons
 * Google font: 'Permanent Marker', cursive
 
+### Setup
+* Requirements:
+    - node
+    - mongod
+    - express
+1. npm install to access dependencies:
+    * "body-parser": "^1.15.2",
+    * "bower": "^1.7.9",
+    * "express": "^4.14.0",
+    * "mongoose": "^4.5.5",
+    * "nodemon": "^1.9.2"
+2. Start server node server.js
+3. Start mongod databse
+4. Visit http://localhost:3000/
+
 ### Existing Features
 + list of REST routes can be found '/api'
 + Used Mongoose to create database of artist Models and pieces of art Models using reference relationship
